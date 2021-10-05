@@ -8,23 +8,30 @@
      <link rel="stylesheet" href="./style.css">
     <title>Github Search - MK</title>
 </head>
-<body>
+<body class="light-theme">
 
     <main class="main">
         <section class="search-conteiner">
             <section class="devifinder">
                <h1>devifinder</h1>
                 <div>
-                    <span>DARK</span>
-                    <img src="./starter-code/assets/icon-moon.svg" alt="">
+                    <span class="change-theme">DARK</span>
+                    <object id="svgMoonSun" type="image/svg+xml" data="./starter-code/assets/icon-moon.svg"></object>
+                    <!-- <img src="./starter-code/assets/icon-moon.svg" alt=""> -->
                 </div>
             </section>
             <section class="search-box">
+                <div>
                 <img src="./starter-code/assets/icon-search.svg" alt="">
-
                 <input type="text" placeholder="Search GitHub username…">
-                <span class="search-result">a</span>
-                <button>Search</button>
+                </div>
+
+                <div>
+                    <span class="search-result">No results</span>
+                    <button>Search</button>
+                </div>
+               
+               
             </section>
             <section class="github-info">
                 <div class="left-image">
@@ -35,18 +42,18 @@
                         <div>
                             <h1>The Octocat</h1>
                             <p>@octocat</p>
-                            <p>This profile has no bio</p>
                         </div>
                         <div class="joined">
                         <p>Joined 25 Jan 2011</p>
                         </div>
+                        <p>This profil has no bio</p>
                     </div>
                     <div class="followers">
                         <div class="repos">
                             <p>Repos</p>
                             <h1>8</h1>
                         </div>
-                        <div class="followers">
+                        <div class="follower">
                              <p>Followers</p>
                             <h1>3938</h1>
                         </div>
