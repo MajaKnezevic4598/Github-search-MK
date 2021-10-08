@@ -1,101 +1,148 @@
 
-const changeTheme = document.querySelector(".change-theme");
-// const main = document.querySelector(".main");
-// const moonSunImage = document.querySelector(".devifinder img");
+window.onload = function(){
 
-// const devifinder = document.querySelector(".devifinder");
-// const searchBox = document.querySelector(".search-box");
-// const input = document.querySelector("input[type=text]");
-// const githubInfo = document.querySelector(".github-info");
-// const followers = document.querySelector(".followers");
-// const infoParagrafs = githubInfo.querySelectorAll("p");
-// const bottomImages = document.querySelectorAll(".bottom-info>div img");
+  const changeTheme = document.querySelector(".change-theme");
+  const avatar = document.querySelector(".left-image img");
+  const name = document.querySelector(".name-heading");
+  const dataLogin = document.querySelector(".data-login");
+  const bioInfo = document.querySelector(".bio");
+  const repos = document.querySelector(".repos>h1");
+  const followers = document.querySelector(".follower>h1");
+  const following = document.querySelector(".following>h1");
+  const location = document.querySelector(".location + p");
+  const company = document.querySelector(".company + p");
+  const website = document.querySelector(".website + p");
+  const twitter = document.querySelector(".twitter + p");
+  const searchResult = document.querySelector(".search-result");
+  const btn = document.querySelector("button");
+  const input = document.querySelector("input[type=text]");
+  const body = document.querySelector(".light-theme");
+  const moonSun = document.getElementById("svgMoonSun");
+  const imageLocation = document.querySelector(".location");
+  const imageWebsite = document.querySelector(".website");
+  const imageCompany = document.querySelector(".company");
+  const imageTwitter = document.querySelector(".twitter");
+  const joined = document.querySelector(".joined>p");
+  
 
-
-const body = document.querySelector(".light-theme");
-
-const moonSun = document.getElementById("svgMoonSun");
-console.log(moonSun);
-const sunUrl = "./starter-code/assets/icon-sun.svg";
-const moonUrl = "./starter-code/assets/icon-moon.svg";
-
-moonSun.addEventListener('load',function(){
-
-    changeTheme.addEventListener("click",change)
-
-})
-
-    // moonSun.addEventListener("load",function(){
-    // let objectUrl =moonSun.attributes.data.value;
-   
-    // console.log(objectUrl)
-    
-    // const svgClass = moonSun.contentDocument.querySelector("svg");  
-
-//      let objectUrl = moonSun.attributes.data.value;
-//         changeTheme.addEventListener("click",function(){
-           
-//             if(objectUrl == moonUrl) {
-//                 console.log('mesec je');
-               
-//                 moonSun.setAttribute("data","/starter-code/assets/icon-sun.svg");
-//                 console.log(objectUrl)
-//             }
-//             if(objectUrl == sunUrl){
-//                 console.log('sada je sunce')
-//                 moonSun.setAttribute("data","/starter-code/assets/icon-moon-svg");
-//             }
-          
-//             // moonSun.setAttribute("data", "./starter-code/assets/icon-sun.svg");
-//             // console.log(moonSun)
-//         //   const documentMoon = moonSun.contentDocument.querySelector(".moon");
-//         //   documentMoon.querySelector("path").setAttribute("fill","#fff");
-//         // console.log(documentMoon)
-//         // })
-
-//     // const documentMoon = moonSun.contentDocument.querySelector(".moon");
-//     // documentMoon.querySelector("path").setAttribute("fill","red");
-    
-    
-// })
-
-
-
-
-   function change(){
-    if(body.classList == "light-theme"){
-      console.log("light");
+  changeTheme.addEventListener("click", change);
+  function change() {
+    if (body.classList == "light-theme") {
       body.classList = "dark-theme";
       changeTheme.textContent = "LIGHT";
-    moonSun.setAttribute("data", "./starter-code/assets/icon-sun.svg");
+      moonSun.setAttribute("data", "./starter-code/assets/icon-sun.svg");
+      imageLocation.setAttribute("src", "./starter-code/assets/icon-location-white.svg");
+      imageWebsite.setAttribute("src", "./starter-code/assets/icon-website-white.svg");
+      imageCompany.setAttribute("src", "./starter-code/assets/icon-company-white.svg");
+      imageTwitter.setAttribute("src","./starter-code/assets/icon-twitter-white.svg")
+    } else if (body.classList == "dark-theme") {
+      body.classList = "light-theme";
+      changeTheme.textContent = "DARK";
+      moonSun.setAttribute("data", "./starter-code/assets/icon-moon.svg");
+      imageLocation.setAttribute("src","./starter-code/assets/icon-location.svg");
+      imageWebsite.setAttribute("src","./starter-code/assets/icon-website.svg");
+      imageCompany.setAttribute("src","./starter-code/assets/icon-company.svg");
+      imageTwitter.setAttribute("src","./starter-code/assets/icon-twitter.svg");
     }
-    else if(body.classList == 'dark-theme'){
-        body.classList = 'light-theme';
-        changeTheme.textContent = "DARK";
-         moonSun.setAttribute("data", "./starter-code/assets/icon-moon.svg");
+  } //end event listener change theme
 
-    }
+  function getGithubUserName(username) {
+    fetch(`https://api.github.com/users/${username}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`No user with that username`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+       renderData(data);
+      })
+      .catch((err) => {
+        searchResult.style.display = "block";
+      });
+  }
 
-    
-   }
+
+  btn.addEventListener("click", function () {
+      let inputValue = input.value;
+    getGithubUserName(inputValue);
+  });
  
+  input.addEventListener('keypress',function(event){
+      if(event.keyCode == 13) {
+          let inputValue = input.value;
+          getGithubUserName(inputValue)
+      }
+  })
 
-// function searchGitHubUser(username){
+  function renderData(data){
+      avatar.setAttribute("src",data.avatar_url);
+      dataLogin.textContent = `@${data.login}`;
+        checkIfNull(data,"name",name);
+        checkBio(data);
+        checkIfNull(data,"location",location);
+        checkIfNull(data, "company", company);
+        checkIfNull(data,"blog",website);
+        checkIfNull(data,"twitter_username",twitter)
+        repos.textContent = data.public_repos;
+        followers.textContent = data.followers;
+        following.textContent = data.following;
+         const joinedDate = formatDate(data);
+         joined.textContent = joinedDate;
+  }
 
-//     const url = `https://api.github.com/users/${username}`;
-//     fetch(url).then(response=>response.json())
-//     .then(data =>{
-//         console.log(data);
-//         console.log(data.login);
-//         console.log(data.avatar_url);
-//         console.log(data.created_at);
-//         console.log(data.followers);
-//         console.log(data.following);
-//         console.log(data.public_repos);
-//         console.log(data.location);
-//         console.log(data.twitter_username);
-//     })
 
-// }
+  function checkBio(data){
+      if(data.bio !== null){
+        bioInfo.textContent = data.bio
+      } else {
+          return false
+      }
+  }
 
-// searchGitHubUser('MajaKnezevic4598')
+function checkIfNull(data,property,element){
+    if(data[property]){
+        element.textContent = data[property];
+        if (
+          element.previousElementSibling !== null &&
+          element.previousElementSibling.tagName == "IMG"
+        ) {
+        const img = element.previousElementSibling;
+          if (img.className == "twitter" ) {
+              img.setAttribute("style","opacity:1;");
+              img.nextElementSibling.style.color = "var(--paragraf-color)";
+          }
+       
+    }}
+    if(!(data[property])){
+       
+        element.textContent = "Not Available";
+        element.classList.add("dinamic-not-available");
+         if (element.previousElementSibling !==null && element.previousElementSibling.tagName == 'IMG' ){
+             const img = element.previousElementSibling;
+             switch(img.className){
+                 case "location":   
+                 case  "website":
+                 case  "company": 
+                 case  "twitter":
+                    img.classList.add("transparent-img");
+                    break;
+               
+             }//kraj switcha
+         }
+    }
+}
+
+function formatDate(data){
+    const arrayOfMonths = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct", "Nov","Dec"];
+    let date = data.created_at;
+    let startingDate = new Date(date);
+    let day = startingDate.getDate();
+    let month = startingDate.getMonth();
+    let year = startingDate.getFullYear();
+    return `Joined ${day} ${arrayOfMonths[month]} ${year}`;
+    
+}
+
+ 
+}//end load event
