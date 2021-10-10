@@ -52,12 +52,15 @@ window.onload = function(){
         if (!response.ok) {
           throw new Error(`No user with that username`);
         }
+        console.log(response)
         return response.json();
       })
       .then((data) => {
        renderData(data);
+       console.log(data)
       })
       .catch((err) => {
+        console.log(err)
         searchResult.style.display = "block";
       });
   }

@@ -46,7 +46,7 @@ body{
 }
 
 h1{
-    font-size: 2.2vw;
+    font-size: 2vw;
     font-weight: 900;
     line-height: 2.2vw;
     margin: 0;
@@ -56,7 +56,7 @@ h1{
 
 
 p{
-    font-size: 1.4vw;
+    font-size: 1.2vw;
      color: var(--paragraf-color);
      margin: 0;
 }
@@ -70,7 +70,7 @@ p{
 }
 
 .search-conteiner{
-    width: 72%;
+    width: 55%;
     height: 80%;
     display: flex;
     flex-direction: column;
@@ -99,7 +99,7 @@ p{
     margin-left:1.2vw;
 }
 .change-theme {
-    font-size: 1.6vw;
+    font-size: 1.2vw;
     font-weight: bold;
     letter-spacing: 0.2vw;
     color:var( --toggle-word-font);
@@ -142,13 +142,13 @@ p{
 
 
 .search-box button{
- margin-right: 1vw;
+ margin-right: 0.5vw;
  width: 10vw;
  height: 80%;
  background-color: var(--light-blue);
  color: #fff;
  font-family: 'Space mono', monospace ;
- font-size:1.5vw;
+ font-size:1.2vw;
  border: none;
  border-radius: 8px;
  letter-spacing: 0.1vw;
@@ -171,7 +171,7 @@ p{
     font-family:'Space Mono', monospace;
     width:30vw;
     color:var(--paragraf-color);
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     letter-spacing: 0.1vw;
     background-color: var(--search-box-theme);
 }
@@ -275,7 +275,7 @@ p{
 
 .followers{
     width: 100%;
-    height: 22%;
+    height: 20%;
     background-color: var(--followers-conteiner);
     display: flex;
     border-radius: 8px;
@@ -308,9 +308,12 @@ p{
 }
 
 .bottom-info>div img{
-    height: 4.5vh;
+    height: 3.5vh;
     margin-right:2vw;
     
+}
+.bottom-info>div:nth-child(even){
+    margin-left:0.5vw;
 }
 
 .twitter + p{
@@ -388,41 +391,46 @@ p{
     
 }
 
-@media  screen and (max-width:370px) {
+@media  screen and (max-width:480px) {
      .search-conteiner{
         width: 90%;
-        height: 80%;
+        height: auto;
         margin-top:4vh;
     }
     .main {
         align-items: flex-start;
+        height: auto;
     }
     h1{
-        font-size: 3.5vh;
+        font-size: 4.5vh;
     }
     p{
-        font-size: 2vh;
+        font-size: 3vh;
+    }
+    .github-info {
+        height: 115vh;
+        margin-bottom: 15vh;
     }
     .change-theme{
         font-size: 2.2vh;
     }
     .search-box{
-        height: 8vh;
+        height: 10vh;
     }
     .search-box>div:first-of-type{
         width: 100%;
        
     }
     .search-box input {
-        font-size:2vh;
+        font-size:2.8vh;
         width: 80%;
     }
     .search-box button{
         width: 18vw;
-        font-size:2vh
+        font-size:2.8vh
     }
     .main-info{
-        margin-top:3vh;
+        margin-top:6vh;
        flex-direction: column;
        flex-wrap: nowrap;
         
@@ -430,27 +438,31 @@ p{
     .main-info p{
         margin-top:3vh;
         margin-left:3vw;
+        margin-bottom: 6vh;
     }
 
     .main-info>div:nth-of-type(1){
-        margin-left: 19vw;
+        margin-left: 22vw;
     }
     .right-content{
         width: 95vw;
+        height: auto;
+        /* margin-bottom: 3vh; */
        
        margin: 0;
     }
     .joined p{
         margin-top:0;
-        margin-left:19vw;
+        margin-left:22vw;
     }
 
      .left-image img{
-         top:22vh;
+         width: 16%; 
+         top:30vh;
          left:8vw;
      }
      .followers{
-         height: 14%;
+         height: 22%;
          width: 90%;
          margin-left:3vw;
      }
@@ -458,6 +470,7 @@ p{
         display: block;
         margin-left:3vw;
         height: auto;
+        margin-top: 6vh;
      }
      .bottom-info>div{
          margin-bottom: 2vh;
@@ -467,7 +480,12 @@ p{
         margin-right: 1vw;
         width: 20vw;
     }
-     
+    .bottom-info>div:nth-child(even) {
+    margin-left: 0;
+}
+     .bottom-info>div {
+    margin-bottom: 3vh;
+}
 }
 
 
