@@ -23,6 +23,7 @@ window.onload = function(){
   const imageCompany = document.querySelector(".company");
   const imageTwitter = document.querySelector(".twitter");
   const joined = document.querySelector(".joined>p");
+  const blogLink = document.querySelector(".blog-link");
   
 
   changeTheme.addEventListener("click", change);
@@ -76,6 +77,14 @@ window.onload = function(){
           let inputValue = input.value;
           getGithubUserName(inputValue)
       }
+  });
+  input.addEventListener("click",function(){
+    if(input.value){
+      input.value = "";
+    }
+    if(searchResult.style.display = "block"){
+       searchResult.style.display = "none";
+    }
   })
 
   function renderData(data){
@@ -85,7 +94,7 @@ window.onload = function(){
         checkBio(data);
         checkIfNull(data,"location",location);
         checkIfNull(data, "company", company);
-        checkIfNull(data,"blog",website);
+        checkIfNull(data,"html_url",blogLink);
         checkIfNull(data,"twitter_username",twitter)
         repos.textContent = data.public_repos;
         followers.textContent = data.followers;
@@ -106,6 +115,10 @@ window.onload = function(){
 function checkIfNull(data,property,element){
     if(data[property]){
         element.textContent = data[property];
+        if(element.className == "blog-link"){
+          element.setAttribute("href",data.html_url);
+          // element.style = "word-wrap:break-word";
+        }
         if (
           element.previousElementSibling !== null &&
           element.previousElementSibling.tagName == "IMG"

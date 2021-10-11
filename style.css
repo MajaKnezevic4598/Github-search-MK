@@ -186,7 +186,7 @@ p{
     width: auto;
     height: 80%;
     margin-right: 1vw;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     color: red;
     font-weight: 700;
     text-align: right;
@@ -329,9 +329,15 @@ p{
 .transparent-img{
     opacity: 0.5;
 }
+.paraf-link{
+    width: 100%;
+}
 .blog-link {
+    width: 78%;
     text-decoration: none;
-    color:var(--paragraf-color)
+    color:var(--paragraf-color);
+    display: block;
+    overflow-wrap: break-word;
 }
 
 
@@ -420,9 +426,10 @@ p{
     .search-box>div:first-of-type{
         width: 100%;
        
+       
     }
     .search-box input {
-        font-size:2.8vh;
+        font-size:2.4vh;
         width: 80%;
     }
     .search-box button{
@@ -478,7 +485,9 @@ p{
     .search-result{
         font-size: 1.8vh;
         margin-right: 1vw;
-        width: 20vw;
+        width: 15vw;
+        display: flex;
+        align-items: flex-end;
     }
     .bottom-info>div:nth-child(even) {
     margin-left: 0;
