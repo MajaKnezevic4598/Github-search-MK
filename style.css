@@ -43,6 +43,8 @@ body{
     padding: 0;
     box-sizing: border-box;
     height: 100vh;
+    display: flex;
+    justify-content: center;
 }
 
 h1{
@@ -429,6 +431,9 @@ p{
 }
 
 @media  screen and (min-width:320px) and (max-width:480px) {
+    body{
+        overflow-x: hidden;
+    }
      .search-conteiner{
         width: 90%;
         height: auto;
@@ -436,7 +441,8 @@ p{
     }
     .main {
         align-items: flex-start;
-        height: auto;
+        height: 130vh;
+        width: 100%;
     }
     h1{
         font-size: 5vw;
