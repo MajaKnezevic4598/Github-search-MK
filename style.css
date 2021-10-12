@@ -344,9 +344,40 @@ p{
 @media  screen and (max-width:768px) {
      h1{
         line-height: normal;
+        font-size: 3.3vw;
+    }
+    p{
+        font-size: 2.2vw;
+    }
+    .search-box{
+        height: 10%;
+        justify-content: flex-start;
+    }
+    .search-box input{
+        font-size: 2.4vw;
+        width: 40vw;
+    }
+    .search-box>div:first-of-type{
+        width: 60%;
+    }
+    .search-box>div:nth-of-type(2){
+        width: 40%;
+        margin-left:2vw;
     }
      .search-conteiner{
         width: 80%;
+    }
+    .search-box button{
+        width: 14vw;
+        font-size:2.4vw ;
+    }
+    .search-result{
+        font-size: 2vw;
+        line-height: 7vw;
+      
+    }
+    .change-theme{
+        font-size:2vw;
     }
 
      .main-info{
@@ -356,7 +387,7 @@ p{
         margin-top:4vh;
     }
     .joined{
-        margin-left:0;
+        margin-left:4vw;
     }
     .joined p{
         text-align: left;
@@ -373,14 +404,14 @@ p{
     }
 
     .main-info>div:nth-of-type(1){
-       margin-left:15vw;
+       margin-left:20vw;
     }
 
     .left-image img{
-    width: 12%;
+    width: 17%;
     height: auto;
     position: absolute;
-    top: 33vh;
+    top: 32vh;
     left: 20vw;
     border-radius: 50%;
   
@@ -408,13 +439,13 @@ p{
         height: auto;
     }
     h1{
-        font-size: 4vh;
+        font-size: 5vw;
     }
     p{
-        font-size: 3vh;
+        font-size: 4vw;
     }
     .github-info {
-        height: 100vh;
+        height: 90vh;
         margin-bottom: 15vh;
     }
     .change-theme{
@@ -433,12 +464,12 @@ p{
         height: auto;
     }
     .search-box input {
-        font-size:2.8vh;
+        font-size:3.2vw;
         width: 80%;
     }
     .search-box button{
         width: 18vw;
-        font-size:2.6vh
+        font-size:3.2vw
     }
     .main-info{
         margin-top:6vh;
@@ -454,7 +485,7 @@ p{
     }
 
     .main-info>div:nth-of-type(1){
-        margin-left: 22vw;
+        margin-left: 30vw;
     }
     .right-content{
         width: 95vw;
@@ -465,6 +496,7 @@ p{
     }
     .joined{
         width: 100%;
+        margin-left: 8vw;
     }
     .joined p{
         margin-top:0;
@@ -472,8 +504,8 @@ p{
     }
 
      .left-image img{
-         width: 16%; 
-         top:30vh;
+         width: 22%; 
+         top:26vh;
          left:8vw;
      }
      .followers{
@@ -489,6 +521,7 @@ p{
      }
      .bottom-info>div{
          margin-bottom: 2vh;
+         width: 80%;
      }
     .search-result{
         font-size: 2.2vw;
@@ -508,6 +541,10 @@ p{
 }
 .blog-link{
     overflow-wrap:normal;
+
+}
+.twitter + p{
+    width: 100%;
 }
 }
 @media  screen and (max-width:320px) {
